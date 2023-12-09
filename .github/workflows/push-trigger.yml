@@ -14,7 +14,7 @@ on:
         type: string
   push:
     branches:
-      - release-1*
+      - release*
       - master
       - 1.*
       - develop
