@@ -14,8 +14,8 @@ on:
         type: string
   push:
     branches:
-      - '!release-branch'
-      - 'release*'
+      - release*
+      - !release-branch
       - master
       - 1.*
       - develop
