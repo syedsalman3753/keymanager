@@ -15,7 +15,7 @@ on:
   push:
     branches:
       - '!release-branch'
-      - release*
+      - 'release*'
       - master
       - 1.*
       - develop
