@@ -15,11 +15,12 @@ on:
   push:
     branches:
       - release*
-      - !release-branch
       - master
       - 1.*
       - develop
       - MOSIP*
+    paths-ignore:
+      - 'release-branch/**'
 
 jobs:
   build-kernel:
