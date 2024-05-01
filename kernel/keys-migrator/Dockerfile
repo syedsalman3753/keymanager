@@ -9,9 +9,8 @@ LABEL commit_hash=${COMMIT_HASH}
 LABEL commit_id=${COMMIT_ID}
 LABEL build_time=${BUILD_TIME}
 
-RUN apt-get update \
-    && apt-get -y upgrade \
-    && apt-get -y install unzip
+RUN apk update \
+    && apk add unzip
 
 # can be passed during Docker build as build time environment for github branch to pickup configuration from.
 ARG spring_config_label
