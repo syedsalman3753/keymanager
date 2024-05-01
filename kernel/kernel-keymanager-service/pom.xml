@@ -58,7 +58,7 @@
 				<artifactId>kernel-bom</artifactId>
 				<version>1.2.1-java21-SNAPSHOT</version>
 				<type>pom</type>
-			    <scope>import</scope>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -83,7 +83,7 @@
 				</exclusion>
 				<exclusion>
 					<groupId>org.mockito</groupId>
-					<artifactId>mockito-junit-jupiter</artifactId> 
+					<artifactId>mockito-junit-jupiter</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -125,7 +125,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>	
+			<artifactId>junit-vintage-engine</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -158,19 +158,19 @@
 			<groupId>org.cache2k</groupId>
 			<artifactId>cache2k-api</artifactId>
 			<version>${cache2k-version}</version>
-		  </dependency>
-		  <dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.cache2k</groupId>
 			<artifactId>cache2k-core</artifactId>
 			<version>${cache2k-version}</version>
-		  </dependency>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 			<version>${spring.boot.configuration.processor}</version>
 		</dependency>
-			<dependency>
+		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
 			<exclusions>
@@ -253,18 +253,18 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	
-<distributionManagement>
+
+	<distributionManagement>
 		<snapshotRepository>
-                        <id>ossrh</id>
-                        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository> 
-                 <repository>
-                        <id>ossrh</id>
-                        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository> 
-        </distributionManagement> 
-        <build>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -297,117 +297,117 @@
 					</execution>
 				</executions>
 			</plugin>
-		<plugin>
-              <artifactId>maven-deploy-plugin</artifactId>
-              <version>2.8.1</version>
-              <executions>
-                 <execution>
-                    <id>default-deploy</id>
-                    <phase>deploy</phase>
-                    <goals>
-                       <goal>deploy</goal>
-                    </goals>
-                 </execution>
-              </executions>
-           </plugin>
-               <plugin>
-                  <groupId>org.sonatype.plugins</groupId>
-                  <artifactId>nexus-staging-maven-plugin</artifactId>
-                  <version>1.6.7</version>
-                  <extensions>true</extensions>
-                  <executions>
-                    <execution>
-                      <id>default-deploy</id>
-                      <phase>deploy</phase>
-                      <goals>
-                        <goal>deploy</goal>
-                      </goals>
-                    </execution>
-                  </executions>
-                  <configuration>
-                        <serverId>ossrh</serverId>
-                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                  </configuration>
-                </plugin> 
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>false</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
 
-               <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-source-plugin</artifactId>
-                  <inherited>true</inherited>
-                  <version>2.2.1</version>
-                  <executions>
-                        <execution>
-                          <id>attach-sources</id>
-                          <goals>
-                                <goal>jar-no-fork</goal>
-                          </goals>
-                        </execution>
-                  </executions>
-                </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<inherited>true</inherited>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-              <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-javadoc-plugin</artifactId>
-                  <version>3.2.0</version>
-                  <executions>
-                        <execution>
-                          <id>attach-javadocs</id>
-                          <goals>
-                                <goal>jar</goal>
-                          </goals>
-                        </execution>
-                  </executions>
-                  <configuration>
-                          <doclint>none</doclint>
-                  </configuration>
-                </plugin>
-                <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-gpg-plugin</artifactId>
-                  <version>1.5</version>
-                  <executions>
-                        <execution>
-                          <id>sign-artifacts</id>
-                          <phase>verify</phase>
-                          <goals>
-                                <goal>sign</goal>
-                          </goals>
-		          <configuration>
-                		<gpgArguments>
-                    			<arg>--pinentry-mode</arg>
-                    			<arg>loopback</arg>
-                		</gpgArguments>
-            		 </configuration>
-                        </execution>
-                  </executions>
-                </plugin>
-		<plugin>
-    			<groupId>pl.project13.maven</groupId>
-			<artifactId>git-commit-id-plugin</artifactId>
-			<version>3.0.1</version>
-			<executions>
-        			<execution>
-			        	<id>get-the-git-infos</id>
-					<goals>
-						<goal>revision</goal>
-            				</goals>
-            				<phase>validate</phase>
- 				</execution>
- 			</executions>
- 			<configuration>
-				<generateGitPropertiesFile>true</generateGitPropertiesFile>
-				<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-                    		<includeOnlyProperties>
-                        		<includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
-                        		<includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
-                    		</includeOnlyProperties>
-                    		<commitIdGenerationMode>full</commitIdGenerationMode>
- 				<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-				<!-- <format>json</format> -->
-			</configuration>
-		</plugin>
-		<plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doclint>none</doclint>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<configuration>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					<includeOnlyProperties>
+						<includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+						<includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+					</includeOnlyProperties>
+					<commitIdGenerationMode>full</commitIdGenerationMode>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<!-- <format>json</format> -->
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
@@ -440,27 +440,27 @@
 					</execution>
 				</executions>
 			</plugin>
-          </plugins>
-        </build>
-		<scm>
-			<connection>scm:git:git://github.com/mosip/keymanager.git</connection>
-			<developerConnection>scm:git:ssh://github.com:mosip/keymanager.git</developerConnection>
-			<url>https://github.com/mosip/keymanager</url>
-			<tag>HEAD</tag>
-        </scm>
-		<licenses>
-          <license>
-                <name>MPL 2.0</name>
-                <url>https://www.mozilla.org/en-US/MPL/2.0/</url>
-          </license>
-        </licenses>
-		<developers>
-                <developer>
-                  <name>MOSIP</name>
-                  <email>mosip.emailnotifier@gmail.com</email>
-                  <organization>MOSIP</organization>
-                  <organizationUrl>https://mosip.io/</organizationUrl>
-                </developer>
-        </developers>
-		
-	</project>
+		</plugins>
+	</build>
+	<scm>
+		<connection>scm:git:git://github.com/mosip/keymanager.git</connection>
+		<developerConnection>scm:git:ssh://github.com:mosip/keymanager.git</developerConnection>
+		<url>https://github.com/mosip/keymanager</url>
+		<tag>HEAD</tag>
+	</scm>
+	<licenses>
+		<license>
+			<name>MPL 2.0</name>
+			<url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>MOSIP</name>
+			<email>mosip.emailnotifier@gmail.com</email>
+			<organization>MOSIP</organization>
+			<organizationUrl>https://mosip.io/</organizationUrl>
+		</developer>
+	</developers>
+
+</project>

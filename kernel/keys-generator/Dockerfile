@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM eclipse-temurin:21-jre-alpine
 
 ARG SOURCE
 ARG COMMIT_HASH
@@ -56,7 +56,10 @@ ENV hsm_zip_file_path=${hsm_client_zip_path}
 # creating folder to copy additional supporting jar files required at run-time.
 #RUN mkdir /additional-jars
 
-ENV work_dir=/
+# set working directory for the user
+WORKDIR /home/${container_user}
+
+ENV work_dir=/home/${container_user}
 
 ARG loader_path=${work_dir}/additional_jars/
 
